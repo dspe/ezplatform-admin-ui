@@ -11,7 +11,6 @@ use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\Event\FilterViewBuilderParametersEvent;
-use EzSystems\EzPlatformAdminUi\SiteAccess\AdminFilter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use eZ\Publish\Core\MVC\Symfony\View\ViewEvents;
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -124,6 +123,6 @@ class RequestAttributesListener implements EventSubscriberInterface
     {
         $siteAccess = $request->attributes->get('siteaccess');
 
-        return in_array($siteAccess->name, $this->siteAccessGroups[AdminFilter::ADMIN_GROUP_NAME], true);
+        return in_array($siteAccess->name, $this->siteAccessGroups['admin_group'], true);
     }
 }
