@@ -81,3 +81,9 @@ services:
         public: true
         tags:
             - { name: kernel.event_subscriber }
+
+    Twig_Extensions_Extension_Text:
+        public: true
+        class: \Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
