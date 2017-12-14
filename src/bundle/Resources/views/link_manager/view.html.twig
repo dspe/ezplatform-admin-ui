@@ -16,7 +16,7 @@
     } %}
 {%- endblock -%}
 
-{% block bodyClass %}ez-info-view{% endblock %}
+{% block bodyClass %}ez-link-manager-view{% endblock %}
 
 {%- block content -%}
     <section class="container mt-5">
@@ -67,20 +67,12 @@
     </section>
 
     <section class="container mt-5">
-        <div class="ez-table-header round">
-            <h5 class="ez-table-header">
+        <div class="ez-table-header">
+            <div class="ez-table-header__headline">
                 {{ 'url.tab.usages'|trans({'%count%': usages.nbResults })|desc('Content item(s) using this URL') }}
-            </h5>
+            </div>
         </div>
-
         <table class="table">
-            <colgroup>
-                <col />
-                <col width="20%"/>
-                <col width="10%"/>
-                <col width="10%"/>
-            </colgroup>
-
             <thead>
                 <tr>
                     <th>{{ 'url.usages.column.name'|trans|desc('Name') }}</th>
@@ -102,11 +94,13 @@
                         </td>
                         <td>{{ content.published ? 'Published' : 'Draft' }}</td>
                         <td class="text-right">
+                            {% if can_edit %}
                             <a href="{{ edit_url }}" class="btn btn-icon">
                                 <svg class="ez-icon ez-icon-edit">
                                     <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
                                 </svg>
                             </a>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}

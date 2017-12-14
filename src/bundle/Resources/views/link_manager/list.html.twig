@@ -47,12 +47,9 @@
     </section>
 
     <section class="container mt-4">
-        <div class="ez-table-header round">
-            <h5 class="ez-table-header">
-                {{ 'url.list.title'|trans({ '%count%': urls.count })|desc('Links (%count%)') }}
-            </h5>
+        <div class="ez-table-header">
+            <div class="ez-table-header__headline">{{ 'url.list.title'|trans({ '%count%': urls.count })|desc('Links (%count%)') }}</div>
         </div>
-
         <table class="table">
             <thead>
                 <tr>
@@ -88,12 +85,6 @@
                                     <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
                                 </svg>
                             </a>
-                        {% else %}
-                            <span class="btn btn-icon">
-                                <svg class="ez-icon ez-icon-edit">
-                                    <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
-                                </svg>
-                            </span>
                         {% endif %}
                     </td>
                 </tr>

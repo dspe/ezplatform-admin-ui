@@ -4,4 +4,4 @@
     statusField.addEventListener('change', function() {
         this.form.submit();
     });
-}) (document);
+})(document);
